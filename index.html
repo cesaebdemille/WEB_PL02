@@ -1,0 +1,714 @@
+<!doctype html>
+<!--LANGUAGE-->
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <!--VIEWPORT META-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CESAE Viagens</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- ORDER OF ASSETS REF MATTERS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css"
+    />
+    <!-- <link href=" " rel="stylesheet"> -->
+    <!-- https://getbootstrap.com/docs/5.3/examples/ -->
+    <!-- https://getbootstrap.com/docs/5.0/examples/cheatsheet/ -->
+  </head>
+
+  <body>
+    <!-- (none)	0	phone
+    sm	576px	big phone, sideways
+    md	768px	tablet, upright
+    lg	992px	tablet sideways, small laptop
+    xl	1200px	desktop -->
+
+    <!-- color scheme:
+    Yellow buttons/areas
+    btn-
+    *buttons*
+    bg-
+    *inputs, cards*
+    warning
+
+    Dark bands
+    bg-dark
+
+    Light bands
+
+    light-grey
+    text-body-secondary
+
+    What's the use of data-bs-theme="dark? 
+    https://getbootstrap.com/docs/5.3/customize/color-modes/
+    is it contained internally or affected by OS?
+    text-body-emphasis 
+    *derives from theme*
+
+    primary (blue)
+    secondary (grey #6c757d)
+    success · danger · warning (yellow)
+    info · light · dark
+
+    body → secondary → tertiary, plus emphasis
+      -->
+
+    <!-- semantic elements: block, full width -->
+    <header class="sticky-top">
+      <!-- https://getbootstrap.com/docs/5.3/components/navbar/#color-schemes -->
+      <!--inside class> names of styles. how it *looks*    
+     if it has name="value", its what it *does*. goes outside
+     EXCEPTION: data-bs-theme  
+     
+     STICKY ANNOYANCE!!!!!-->
+      <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+        <div class="container">
+          <!--Text properties are inherited-->
+
+          <a class="navbar-brand" href="https://www.cesaedigital.pt/"
+            ><i class="bi bi-airplane me-1"></i>
+            <span class="fw-bolder">CESAE Viagens</span>
+          </a>
+          <!--CHALLENGE  Scrollspy-->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Inicio</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#inicio"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Destinos
+                </a>
+                <!-- ligar ao carrossel? -->
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#destinos">Lisboa</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#destinos">Entroncamento</a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#destinos"
+                      >Viagem Mistério</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#planos">Planos</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#perguntas">Perguntas</a>
+              </li>
+            </ul>
+
+            <a class="btn btn-warning" href="#proposta">Reservar</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <!-- https://getbootstrap.com/docs/5.3/examples/heroes/ -->
+      <!-- selecionado nas dev tools 
+          bg-dark, data/bs/themme=dark, o <p> nao herdou-->
+      <section class="bg-dark py-md-5" id="hero" data-bs-theme="dark">
+        <div class="container text-center py-5 py-md-3">
+          <!-- 2 scale sizes so far. display and fs-\d -->
+
+          <h1 class="display-3 fw-bold text-body-emphasis header mb-3">
+            Descubra o mundo com a CESAE Viagens
+          </h1>
+          <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4 text-body-secondary">
+              Viagens à medida, com apoio em português do primeiro ao último
+              dia.
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <a
+                type="button"
+                class="btn btn-warning btn-lg px-4"
+                href="#planos"
+              >
+                Ver planos
+              </a>
+              <!-- **solid (filled) button** > primary CTA -->
+              <!-- <button type="button" class="btn btn-warning btn-lg px-4">
+                Ver planos
+              </button> -->
+              <!-- **outline button** >  secondary CTA. -->
+              <a
+                type="button"
+                class="btn btn-outline-secondary btn-lg px-4"
+                href="#destinos"
+              >
+                Ver destinos
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="text-center py-4 py-md-5" id="inicio">
+        <div class="container">
+          <h2 class="mb-3 pb-md-4">Porquê a CESAE Viagens?</h2>
+          <div class="row g-4 row-cols-1 row-cols-md-3">
+            <div class="col">
+              <!-- icon
+                 bg-primary-subtle 
+                 text-primary-emphasis -->
+              <div
+                class="d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary-emphasis fs-2 mb-3 p-4 rounded-circle"
+              >
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <h3 class="fs-4 text-body-emphasis">Destinos à medida</h3>
+              <p>
+                Escolhemos o roteiro consigo, do primeiro café ao último pôr do
+                sol.
+              </p>
+            </div>
+            <div class="col">
+              <div
+                class="d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary-emphasis fs-2 mb-3 p-4 rounded-circle"
+              >
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h3 class="fs-4 text-body-emphasis">Viaja em segurança</h3>
+              <p>
+                Seguro incluído e apoio 24 horas, em português, onde quer que
+                esteja.
+              </p>
+            </div>
+            <div class="col">
+              <div
+                class="d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary-emphasis fs-2 mb-3 p-4 rounded-circle"
+              >
+                <i class="bi bi-calendar-check"></i>
+              </div>
+              <h3 class="fs-4 text-body-emphasis">Datas flexíveis</h3>
+              <p>Altera a data da viagem até 15 dias antes, sem custos.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- carrossel -->
+      <section class="bg-body-tertiary py-1 py-md-5" id="destinos">
+        <!-- troubleshooting
+         container makes carousel max/width, with 12px p 
+         max-height with no parent to measure
+         caption absolute
+         overflow hidden
+         keep shrink reflow  hide 
+         An absolute element is measured 
+         from the nearest ancestor that has a position set,-->
+
+        <div class="container text-center py-5 py-md-3">
+          <h2 class="mb-3 mb-md-4">Destinos em destaque</h2>
+          <div
+            id="myCarousel"
+            class="carousel slide mb-3"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#myCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#myCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#myCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <!-- inicio de item -->
+              <div class="carousel-item active" id="slide01">
+                <!-- imagem 
+                 carrousel already has overflow
+                 srcset
+                 to allow responsive vertical
+                 -->
+                <picture>
+                  <source
+                    media="(max-width: 575.98px)"
+                    srcset="
+                      https://images.pexels.com/photos/9253/sea-city-landscape-sky.jpg?w=800&h=1000&fit=crop
+                    "
+                  />
+                  <img
+                    src="https://images.pexels.com/photos/9253/sea-city-landscape-sky.jpg?w=1260&h=540&fit=crop"
+                    class="d-block w-100"
+                    alt="sea city landscape"
+                  />
+                </picture>
+
+                <!-- legendas -->
+
+                <div class="carousel-caption">
+                  <h3>Lisboa</h3>
+                  <p class="opacity-75">
+                    Sete colinas, miradouros e pastéis de nata.
+                  </p>
+                </div>
+              </div>
+              <!-- fim de item -->
+              <div class="carousel-item">
+                <!-- imagem 
+                 carrousel already has overflow
+                 srcset
+                 -->
+
+                <picture>
+                  <source
+                    media="(max-width: 575.98px)"
+                    srcset="
+                      https://images.pexels.com/photos/30858911/pexels-photo-30858911.jpeg?w=800&h=1000&fit=crop
+                    "
+                  />
+                  <img
+                    src="https://images.pexels.com/photos/30858911/pexels-photo-30858911.jpeg?w=1260&h=540&fit=crop"
+                    class="d-block w-100"
+                    alt="railway forking station"
+                  />
+                </picture>
+
+                <!-- legendas -->
+                <div class="container">
+                  <div class="carousel-caption">
+                    <h3>Entroncamento</h3>
+                    <p class="opacity-75">
+                      Visita à Casa Museu António O.P. Brito.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- fim de item -->
+              <div class="carousel-item">
+                <!-- imagem 
+                 carrousel already has overflow
+                 srcset
+                 -->
+
+                <picture>
+                  <source
+                    media="(max-width: 575.98px)"
+                    srcset="
+                      https://images.pexels.com/photos/20095784/pexels-photo-20095784.jpeg?w=800&h=1000&fit=crop
+                    "
+                  />
+                  <img
+                    src="https://images.pexels.com/photos/20095784/pexels-photo-20095784.jpeg?w=1260&h=540&fit=crop"
+                    class="d-block w-100"
+                    alt="Francesinha sandwich"
+                  />
+                </picture>
+
+                <!-- legendas  CAPTION absolute, NEAREST ANCESTOR relative -->
+
+                <div class="carousel-caption">
+                  <h3>Viagem Mistério</h3>
+                  <p class="opacity-75">Praia, montanha, ou ambas?</p>
+                </div>
+              </div>
+            </div>
+            <!-- controlos -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#myCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#myCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="text-center py-3 py-md-5" id="planos">
+        <div class="container py-5 py-md-3">
+          <h2 class="mb-3 pb-md-4">Os nossos planos</h2>
+          <!--gap-* is for plain flex containers whose children don't have percentage widths.-->
+          <div class="row row-cols-1 row-cols-md-3 mb-3 g-3">
+            <!--start-->
+            <div class="col">
+              <div class="card h-100 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Essencial</h4>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h1 class="card-title fw-normal">199 €</h1>
+                  <small class="text-body-secondary">por pessoa</small>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Voos e alojamento</li>
+                    <li>Seguro de viagem</li>
+                    <li>Apoio por email</li>
+                    <li></li>
+                  </ul>
+                  <button
+                    type="button"
+                    class="w-100 btn btn-lg btn-outline-primary mt-auto"
+                  >
+                    Escolher
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!--fim de card-->
+
+            <div class="col">
+              <div class="card h-100 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 text-bg-primary border-primary">
+                  <h4 class="my-0 fw-normal">Família (mais popular)</h4>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h1 class="card-title fw-normal">349 €</h1>
+                  <small class="text-body-secondary">por pessoa</small>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Tudo do Essencial</li>
+                    <li>Transfers incluídos</li>
+                    <li>Atividades para crianças</li>
+                    <li>Apoio 24 horas</li>
+                  </ul>
+                  <button
+                    type="button"
+                    class="w-100 btn btn-lg btn-primary mt-auto"
+                  >
+                    Escolher
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!--start-->
+            <div class="col">
+              <div class="card h-100 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Premium</h4>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h1 class="card-title fw-normal">599 €</h1>
+                  <small class="text-body-secondary">por pessoa</small>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>Tudo da Família</li>
+                    <li>Hotéis de 5 estrelas</li>
+                    <li>Guia privado</li>
+                    <li>Cancelamento flexível</li>
+                  </ul>
+                  <button
+                    type="button"
+                    class="w-100 btn btn-lg btn-outline-primary mt-auto"
+                  >
+                    Escolher
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!--fim de card-->
+          </div>
+        </div>
+      </section>
+      <!-- seccao tamanho??? -->
+      <section class="bg-light py-1 py-md-5" id="perguntas">
+        <div class="container py-5 py-md-3">
+          <h2 class="text-center mb-3 pb-md-4">Perguntas frequentes</h2>
+          <!--col-md-9 = width: 75%-->
+          <div class="accordion col-lg-9 mx-auto" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Posso pagar em prestações?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Sim. Dividimos o valor em até 6 prestações, sem juros.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  O que acontece se eu precisar de cancelar?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">lorem ipsum</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  As crianças pagam o mesmo?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">Lorem ipsum.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-3 py-md-5" id="proposta">
+        <div class="container py-5 py-md-3">
+          <h2 class="text-center mb-3 pb-md-4">Peça uma proposta</h2>
+          <form class="col-lg-9 mx-auto">
+            <!--inside tis container there is one row with gap 3. inside this row there are 4 columns that occupy 6 of 12-->
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="nome" class="form-label">Nome</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nome"
+                  placeholder=""
+                  value=""
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder=""
+                  value=""
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="destino" class="form-label">Destino</label>
+                <select class="form-select" id="destino" required="">
+                  <option value="">Lisboa</option>
+                  <option>Lisboa</option>
+                  <option>Entroncamento</option>
+                  <option>Surpresa</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="pessoas" class="form-label"
+                  >Número de Pessoas</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pessoas"
+                  placeholder="2"
+                  value=""
+                />
+              </div>
+
+              <!--4 entradas-->
+              <div class="col-12">
+                <label for="mensagem" class="form-label">Mensagem</label>
+                <textarea
+                  class="form-control"
+                  id="mensagem"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="checkDefault"
+                  />
+                  <label class="form-check-label" for="checkDefault">
+                    Aceito ser contactado(a) com a proposta
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button
+                  class="w-100 btn btn-primary btn-lg mt-auto"
+                  type="submit"
+                >
+                  Enviar pedido
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark py-1 py-md-3" data-bs-theme="dark">
+      <div class="container px-md-0 py-5 py-md-3">
+        <div class="row row-cols-1 row-cols-md-3  g-3">
+          <div class="col mb-3">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <span ><a class="fw-bolder fs-5 text-decoration-none text-body-emphasis" href="https://www.cesaedigital.pt/"
+                  ><i class="bi bi-airplane me-1"></i>
+                  CESAE Viagens
+                </a></span>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Viagens à medida deste 2010</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col mb-3">
+            <h5 class="text-light-emphasis">Ligações</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="#planos" class="nav-link p-0 text-body-secondary"
+                  >Planos</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#perguntas" class="nav-link p-0 text-body-secondary"
+                  >Perguntas Frequentes</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#proposta" class="nav-link p-0 text-body-secondary"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col mb-3">
+            <form>
+              <h5 class="text-light-emphasis">Newsletter</h5>
+              <label for="newsletter1" class="visually-hidden"
+                >Email address</label
+              >
+              <div class="input-group" data-bs-theme="light">
+                <span class="input-group-text bg-light"
+                  ><i class="bi bi-envelope"></i
+                ></span>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="O seu email"
+                />
+                <button class="btn btn-warning" type="button">
+                  Subscrever
+                </button>
+              </div>
+              <div class="mt-1 d-flex gap-2 fs-5">
+                <a
+                  href="https://www.instagram.com/cesae.digital/"
+                  class="text-body-emphasis text-decoration-none"
+                  aria-label="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/CesaeDigital"
+                  class="text-body-emphasis text-decoration-none"
+                  aria-label="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a
+                  href="https://www.youtube.com/@cesaedigital"
+                  class="text-body-emphasis text-decoration-none"
+                  aria-label="youtube"
+                  ><i class="bi bi-youtube"></i
+                ></a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <p class="text-body-secondary text-center pt-3 border-top" ><small>© 2026 Cesae Viagens</small></p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <!--ORDER OF ASSETS REF MATTERS-->
+  </body>
+</html>
